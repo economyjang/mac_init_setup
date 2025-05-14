@@ -1,0 +1,133 @@
+# AWS 정보
+[aws]
+symbol = "☁️ "  # AWS 아이콘
+style = "bold orange"
+
+# 프롬프트 기호 (커맨드 성공/실패)
+[character]
+success_symbol = "[>](bold green) "
+error_symbol = "[✖](bold red) "
+
+# 명령어 실행 시간
+[cmd_duration]
+format = "⏳ [$duration]($style) "
+style = "bold yellow"
+
+# 디렉토리 스타일
+[directory]
+read_only = "🔒 "  # 읽기 전용 디렉토리 아이콘 변경
+truncation_length = 0  # 경로를 생략하지 않고 Full Path 표시
+truncate_to_repo = false  # Git 리포지토리 경로에서도 전체 경로 표시
+style = "bold blue"
+format = "📂 [$path]($style) "
+
+# Git 브랜치 (이모지 추가)
+[git_branch]
+symbol = "🌱 "  # Git 브랜치 아이콘
+format = "[$symbol$branch]($style) "
+style = "bold magenta"
+
+# Git 상태 (이모지 추가)
+[git_status]
+format = '([ $all_status]($style))'  # 상태가 있을 때만 표시
+style = "bold red"
+
+# Git 상태별 이모지 설정
+conflicted = "💥 "     # 충돌 발생
+ahead = "🚀 "         # 로컬 브랜치가 원격보다 앞섬
+behind = "⬇️ "       # 원격 브랜치가 더 앞섬
+diverged = "🔀 "      # 로컬과 원격이 다름
+untracked = "🆕 "     # 새 파일 있음
+stashed = "📦 "       # Stash 있음
+modified = "📝 "      # 수정된 파일 있음
+staged = "✅ "        # 스테이징된 변경 사항 있음
+renamed = "🔄 "       # 파일 이름 변경됨
+deleted = "🗑 "       # 파일 삭제됨
+
+# 호스트 이름 (서버 접속 시)
+[hostname]
+ssh_only = true
+format = "[🏠 $hostname]($style) "
+style = "bold purple"
+
+# 사용자 이름 (SSH 접속 시 표시)
+[username]
+format = "[$user]($style) on "
+style_user = "bold cyan"
+show_always = false  # 일반 사용자일 때 숨김
+
+# Node.js 버전 (자동 감지)
+[nodejs]
+format = "⬢ [$version]($style) "
+style = "bold green"
+
+# Python 버전 (가상 환경 감지)
+[python]
+symbol = "🐍 "
+format = "[$symbol$version]($style) "
+style = "bold yellow"
+
+# Docker 컨테이너 감지
+[docker_context]
+symbol = "🐳 "
+style = "bold blue"
+format = "[$symbol $context]($style) "
+
+# 시간 표시
+[time]
+disabled = false
+format = "🕒 [$time]($style) "
+time_format = "%T"
+style = "bold cyan"
+
+# Kubernetes 클러스터 감지
+[kubernetes]
+symbol = "☸️  "
+style = "bold blue"
+format = "[$symbol$context]($style) "
+
+# Rust 버전 감지
+[rust]
+symbol = "🦀 "
+format = "[$symbol$version]($style) "
+style = "bold red"
+
+# Java 버전 감지
+[java]
+symbol = "☕ "
+format = "[$symbol$version]($style) "
+style = "bold brown"
+
+# Nix 환경 감지
+[nix_shell]
+symbol = "❄️ "
+style = "bold blue"
+format = "[$symbol$state]($style) "
+
+[lua]
+disabled = true
+
+# 배터리 상태 표시
+[battery]
+full_symbol = "🔋 "         # 배터리 100% 충전됨
+charging_symbol = "⚡ "      # 충전 중
+discharging_symbol = "🔌 "   # 방전 중
+
+# 배터리 잔량이 20% 이하일 때만 표시
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+# Define Dracula color palette
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
