@@ -8,9 +8,16 @@ echo "📦 Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Install Programming Languages
+echo "📦 Installing Programming Languages"
+brew install openjdk@21 go fnm
+
+# Install Utilities
+echo "📦 Installing Utilities"
+brew install bat fzf eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim gitmoji dry git
+
 # Install Cask
-echo "📦 Installing Fomulars and Casks Using homebrew"
-brew install bat fzf fnm eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim gitmoji dry git
+echo "📦 Installing Applications"
 brew install --cask font-fira-code-nerd-font orbstack google-chrome notion slack raycast wezterm chatgpt postman visual-studio-code cursor webstorm termius telegram another-redis-desktop-manager beekeeper-studio
 
 # Set hushlogin
@@ -86,7 +93,7 @@ git() {
   if [[ $1 == "lg" ]]; then
     command git log --date=short --pretty=format:"%C(yellow)%h%Creset - %C(cyan)%an%Creset, %C(green)%ad%Creset : %C(magenta)%s%Creset %C(auto)%d%Creset"
   elif [[ $1 == "br" ]]; then
-    command git branch
+    command git branch "${@:2}"
   elif [[ $1 == "co" ]]; then
     command git checkout "${@:2}"
   elif [[ $1 == "st" ]]; then
