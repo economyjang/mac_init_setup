@@ -12,6 +12,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "📦 Installing Programming Languages"
 brew install openjdk@21 go fnm
 
+# Create OpenJDK symbolic link
+echo "📦 Creating OpenJDK symbolic link"
+sudo ln -sfn $(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+
 # Install Utilities
 echo "📦 Installing Utilities"
 brew install bat fzf eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim gitmoji dry git
@@ -46,6 +50,10 @@ touch ~/.zshrc
 ZSH_CONTENT=$(cat << 'EOF'
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
 # fnm
 eval "$(fnm env --use-on-cd)"
