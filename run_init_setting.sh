@@ -84,6 +84,7 @@ alias ll="eza -al --group-directories-first"
 alias lt="eza -al --sort=modified"
 alias l="ll"
 
+# Zoxide
 eval "$(zoxide init zsh)"
 
 # OrbStack command-line tools
