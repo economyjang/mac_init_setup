@@ -34,15 +34,15 @@ npm install --global yarn
 
 # FastFetch
 mkdir -p ~/.config/fastfetch
-cp ~/Development/mac_init_setting/fastfetch/config.jsonc ~/.config/fastfetch
-cp ~/Development/mac_init_setting/fastfetch/ascii.txt ~/.config/fastfetch
+cp ~/Development/mac_init_setup/fastfetch/config.jsonc ~/.config/fastfetch
+cp ~/Development/mac_init_setup/fastfetch/ascii.txt ~/.config/fastfetch
 
 # Starship
 mkdir -p ~/.config/starship
-cp ~/Development/mac_init_setting/starship/starship.toml ~/.config/starship
+cp ~/Development/mac_init_setup/starship/starship.toml ~/.config/starship
 
 # Wezterm
-cp ~/Development/mac_init_setting/wezterm/wezterm.lua ~/.wezterm.lua
+cp ~/Development/mac_init_setup/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Set .zshrc
 rm ~/.zshrc
