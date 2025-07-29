@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install Programming Languages
 echo "📦 Installing Programming Languages"
-brew install openjdk@21 go fnm
+brew install openjdk@21 go fnm python3
 
 # Create OpenJDK symbolic link
 echo "📦 Creating OpenJDK symbolic link"
@@ -22,7 +22,7 @@ brew install bat fzf eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosu
 
 # Install Cask
 echo "📦 Installing Applications"
-brew install --cask font-fira-code-nerd-font orbstack google-chrome notion slack raycast wezterm chatgpt postman visual-studio-code cursor webstorm termius telegram another-redis-desktop-manager beekeeper-studio
+brew install --cask font-fira-code-nerd-font orbstack google-chrome notion slack raycast wezterm chatgpt postman visual-studio-code cursor webstorm intellij-idea termius another-redis-desktop-manager beekeeper-studio
 
 # Set hushlogin
 touch ~/.hushlogin
@@ -34,17 +34,18 @@ npm install --global yarn
 
 # FastFetch
 mkdir -p ~/.config/fastfetch
-cp ~/Development/Setting-dotfiles/fastfetch/config.jsonc ~/.config/fastfetch
-cp ~/Development/Setting-dotfiles/fastfetch/ascii.txt ~/.config/fastfetch
+cp ~/Development/mac_init_setting/fastfetch/config.jsonc ~/.config/fastfetch
+cp ~/Development/mac_init_setting/fastfetch/ascii.txt ~/.config/fastfetch
 
 # Starship
 mkdir -p ~/.config/starship
-cp ~/Development/Setting-dotfiles/starship/starship.toml ~/.config/starship
+cp ~/Development/mac_init_setting/starship/starship.toml ~/.config/starship
 
 # Wezterm
-cp ~/Development/Setting-dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
+cp ~/Development/mac_init_setting/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Set .zshrc
+rm ~/.zshrc
 touch ~/.zshrc
 
 ZSH_CONTENT=$(cat << 'EOF'
@@ -54,6 +55,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+
+# Python
+export PATH="/opt/homebrew/opt/python@3/libexec/bin:$PATH"
+alias py="python3"
+alias pip="pip3"
 
 # fnm
 eval "$(fnm env --use-on-cd)"
@@ -70,15 +76,14 @@ eval $(thefuck --alias fuck)
 
 # custom alias
 alias ls="eza --color=always --long --no-filesize --icons=always"
+alias lsf="eza -alf --color=always --sort=size | grep -v /"
 alias ld="eza -lD"
 alias lf="eza -lf --color=always | grep -v /"
 alias lh="eza -dl .* --group-directories-first"
 alias ll="eza -al --group-directories-first"
-alias ls="eza -alf --color=always --sort=size | grep -v /"
 alias lt="eza -al --sort=modified"
 alias l="ll"
 
-alias cd="z"
 eval "$(zoxide init zsh)"
 
 # OrbStack command-line tools
@@ -93,7 +98,9 @@ eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # FZF
-source <(fzf --zsh)
+if [ -n "$ZSH_VERSION" ]; then
+  source <(fzf --zsh)
+fi
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 
 # git command custom
