@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install Programming Languages
 echo "📦 Installing Programming Languages"
-brew install openjdk@21 go fnm python3
+brew install openjdk@21 go fnm pyenv
 
 # Create OpenJDK symbolic link
 echo "📦 Creating OpenJDK symbolic link"
@@ -18,7 +18,7 @@ sudo ln -sfn $(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/J
 
 # Install Utilities
 echo "📦 Installing Utilities"
-brew install bat fzf eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim gitmoji dry git
+brew install bat fzf eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim gitmoji dry git pyenv-virtualenv
 
 # Install Cask
 echo "📦 Installing Applications"
@@ -56,10 +56,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
-# Python
-export PATH="/opt/homebrew/opt/python@3/libexec/bin:$PATH"
-alias py="python3"
-alias pip="pip3"
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+alias py="python"
 
 # fnm
 eval "$(fnm env --use-on-cd)"
