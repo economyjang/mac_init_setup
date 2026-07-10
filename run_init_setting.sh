@@ -10,32 +10,32 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install Programming Languages
 echo "📦 Installing Programming Languages"
-brew install openjdk@21 go fnm pyenv
-
-# Create OpenJDK symbolic link
-echo "📦 Creating OpenJDK symbolic link"
-sudo ln -sfn $(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+brew install fnm pyenv
 
 # Install Utilities
 echo "📦 Installing Utilities"
-brew install bat fzf eza fastfetch portal ripgrep thefuck tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim gitmoji dry git pyenv-virtualenv
+brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv
+
+# Install Database Client (PostgreSQL client tools: psql 등)
+echo "📦 Installing Database Client"
+brew install libpq
 
 # Install Cask
 echo "📦 Installing Applications"
-brew install --cask font-fira-code-nerd-font orbstack google-chrome notion slack raycast wezterm chatgpt postman visual-studio-code cursor webstorm intellij-idea termius another-redis-desktop-manager beekeeper-studio
+brew install --cask font-fira-code-nerd-font orbstack google-chrome notion obsidian slack raycast wezterm chatgpt claude postman visual-studio-code cursor another-redis-desktop-manager beekeeper-studio
 
 # Set hushlogin
 touch ~/.hushlogin
 
 # Set Fnm and yarn before .zsh setting
 eval "$(fnm env --use-on-cd)"
-fnm install 20.17.0
+fnm install --lts
+fnm default lts-latest
 npm install --global yarn
 
-# FastFetch
-mkdir -p ~/.config/fastfetch
-cp ~/Development/mac_init_setup/fastfetch/config.jsonc ~/.config/fastfetch
-cp ~/Development/mac_init_setup/fastfetch/ascii.txt ~/.config/fastfetch
+# Install Claude Code (공식 설치 스크립트, ~/.local/bin에 설치됨)
+echo "📦 Installing Claude Code"
+curl -fsSL https://claude.ai/install.sh | bash
 
 # Starship
 mkdir -p ~/.config/starship
@@ -51,10 +51,6 @@ touch ~/.zshrc
 ZSH_CONTENT=$(cat << 'EOF'
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Java
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
@@ -74,9 +70,6 @@ export PATH="$PATH:$(yarn global bin)"
 # Docker
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 alias dpsp='docker ps --format "table {{.Names}}\t{{.Ports}}"'
-
-# the Fuck
-eval $(thefuck --alias fuck)
 
 # custom alias
 alias ls="eza --color=always --long --no-filesize --icons=always"
@@ -123,7 +116,15 @@ git() {
   fi
 }
 
-fastfetch
+# Claude code
+export PATH="$HOME/.local/bin:$PATH"
+alias claude-auto="claude --permission-mode auto"
+alias claude-safe="claude"
+alias claude-danger="claude --dangerously-skip-permissions"
+alias claude-bypass="claude --permission-mode bypassPermissions"
+
+# PostgreSQL
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 EOF
 )
 
