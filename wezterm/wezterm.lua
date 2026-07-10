@@ -47,6 +47,11 @@ config.scrollback_lines = 20000
 -- Claude Code 같은 TUI에서 Shift + Drag로 터미널 선택 가능
 config.bypass_mouse_reporting_modifiers = "SHIFT"
 
+-- macOS: Option(OPT) 누를 때 특수문자 조합을 끄고 Alt 모디파이어로 취급
+-- (한글 IME는 별개라 영향 없음. OPT 단축키가 동작하도록)
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+
 config.keys = {
   {
     key = "]",
@@ -69,24 +74,24 @@ config.keys = {
     action = term.action.CloseCurrentPane({ confirm = true }),
   },
 
-  -- Pane resize
+  -- Pane resize (macOS에서 Option+Shift 없이 눌리도록 소문자 키 사용)
   {
-    key = "H",
+    key = "h",
     mods = "OPT",
     action = term.action.AdjustPaneSize({ "Left", 1 }),
   },
   {
-    key = "J",
+    key = "j",
     mods = "OPT",
     action = term.action.AdjustPaneSize({ "Down", 1 }),
   },
   {
-    key = "K",
+    key = "k",
     mods = "OPT",
     action = term.action.AdjustPaneSize({ "Up", 1 }),
   },
   {
-    key = "L",
+    key = "l",
     mods = "OPT",
     action = term.action.AdjustPaneSize({ "Right", 1 }),
   },
