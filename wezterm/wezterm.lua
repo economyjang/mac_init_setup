@@ -18,12 +18,13 @@ config.macos_window_background_blur = 0
 config.default_cursor_style = "BlinkingUnderline"
 config.cursor_blink_rate = 600
 
--- Font
+-- Font: D2Coding 한 family로 라틴+한글+Nerd 아이콘 통일 (폰트 폭 불일치로 인한 깨짐 방지)
 config.font = term.font_with_fallback({
-  "JetBrainsMono Nerd Font",
-  "NanumGothicCoding",
-  "Nanum Gothic Coding",
-  "Apple SD Gothic Neo",
+  {
+    family = "D2CodingLigature Nerd Font",
+    harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- 리거처 off
+  },
+  "Apple SD Gothic Neo", -- 최후 fallback (희귀 글리프)
 })
 
 config.font_size = 14

@@ -22,7 +22,7 @@ brew install libpq
 
 # Install Cask
 echo "📦 Installing Applications"
-brew install --cask font-fira-code-nerd-font orbstack google-chrome notion obsidian slack raycast wezterm chatgpt claude postman visual-studio-code cursor another-redis-desktop-manager beekeeper-studio
+brew install --cask font-fira-code-nerd-font font-d2coding-nerd-font orbstack google-chrome notion obsidian slack raycast wezterm chatgpt claude postman visual-studio-code cursor another-redis-desktop-manager beekeeper-studio
 
 # Set hushlogin
 touch ~/.hushlogin
