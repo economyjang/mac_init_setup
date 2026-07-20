@@ -47,6 +47,10 @@ cp ~/Development/mac_init_setup/wezterm/wezterm.lua ~/.wezterm.lua
 # tmux
 cp ~/Development/mac_init_setup/tmux/tmux.conf ~/.tmux.conf
 
+# nvim
+mkdir -p ~/.config/nvim
+cp ~/Development/mac_init_setup/nvim/init.lua ~/.config/nvim/init.lua
+
 # Set .zshrc
 rm ~/.zshrc
 touch ~/.zshrc
