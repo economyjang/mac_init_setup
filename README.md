@@ -1,6 +1,6 @@
 # mac_init_setup
 
-새 맥(Apple Silicon)을 초기 세팅하는 스크립트. Homebrew · 개발 도구 · 앱 · 셸 설정(`.zshrc`, starship, wezterm)을 한 번에 설치·구성한다.
+새 맥(Apple Silicon)을 초기 세팅하는 스크립트. Homebrew · 개발 도구 · 앱 · 셸 설정(`.zshrc`, starship, wezterm, tmux)을 한 번에 설치·구성한다.
 
 ## 요구 사항
 
@@ -42,6 +42,7 @@ bash run_init_setting.sh
 | `neovim` | 에디터 |
 | `git` | 최신 git |
 | `libpq` | PostgreSQL 클라이언트 (`psql` 등) |
+| `tmux` | 터미널 멀티플렉서 |
 
 ### 애플리케이션 (Homebrew Cask)
 - 폰트: `font-fira-code-nerd-font`
@@ -55,6 +56,7 @@ bash run_init_setting.sh
 - `.zshrc` 생성 (Homebrew / pyenv / fnm / yarn / eza alias / zoxide / starship / fzf / git 커스텀 함수 / Claude Code · PostgreSQL PATH)
 - starship 설정 → `~/.config/starship/`
 - wezterm 설정 → `~/.wezterm.lua`
+- tmux 설정 → `~/.tmux.conf`
 - macOS Dock 자동 숨김 속도 조정, `~/.hushlogin`
 
 ## 설치 후 수동 작업
@@ -72,5 +74,6 @@ bash run_init_setting.sh
 .
 ├── run_init_setting.sh   # 메인 설치 스크립트
 ├── starship/             # starship 프롬프트 설정
-└── wezterm/              # wezterm 터미널 설정
+├── wezterm/              # wezterm 터미널 설정
+└── tmux/                 # tmux 설정
 ```

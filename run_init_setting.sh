@@ -14,7 +14,7 @@ brew install fnm pyenv
 
 # Install Utilities
 echo "📦 Installing Utilities"
-brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv
+brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux
 
 # Install Database Client (PostgreSQL client tools: psql 등)
 echo "📦 Installing Database Client"
@@ -43,6 +43,9 @@ cp ~/Development/mac_init_setup/starship/starship.toml ~/.config/starship
 
 # Wezterm
 cp ~/Development/mac_init_setup/wezterm/wezterm.lua ~/.wezterm.lua
+
+# tmux
+cp ~/Development/mac_init_setup/tmux/tmux.conf ~/.tmux.conf
 
 # Set .zshrc
 rm ~/.zshrc
