@@ -44,6 +44,7 @@ bash run_init_setting.sh
 | `git` | 최신 git |
 | `libpq` | PostgreSQL 클라이언트 (`psql` 등) |
 | `tmux` | 터미널 멀티플렉서 |
+| `lazygit` | 터미널 git TUI |
 
 ### 애플리케이션 (Homebrew Cask)
 - 폰트: `font-fira-code-nerd-font`
@@ -58,6 +59,7 @@ bash run_init_setting.sh
 - starship 설정 → `~/.config/starship/`
 - wezterm 설정 → `~/.wezterm.lua`
 - tmux 설정 → `~/.tmux.conf`
+- lazygit 설정 → `~/Library/Application Support/lazygit/config.yml`
 - macOS Dock 자동 숨김 속도 조정, `~/.hushlogin`
 
 ## 설치 후 수동 작업
@@ -76,5 +78,7 @@ bash run_init_setting.sh
 ├── run_init_setting.sh   # 메인 설치 스크립트
 ├── starship/             # starship 프롬프트 설정
 ├── wezterm/              # wezterm 터미널 설정
-└── tmux/                 # tmux 설정
+├── tmux/                 # tmux 설정
+├── nvim/                 # neovim 설정
+└── lazygit/              # lazygit 설정
 ```

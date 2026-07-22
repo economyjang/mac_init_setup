@@ -14,7 +14,7 @@ brew install fnm pyenv
 
 # Install Utilities
 echo "📦 Installing Utilities"
-brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux
+brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux lazygit
 
 # Install Database Client (PostgreSQL client tools: psql 등)
 echo "📦 Installing Database Client"
@@ -56,6 +56,10 @@ cp ~/Development/mac_init_setup/tmux/tmux.conf ~/.tmux.conf
 # nvim
 mkdir -p ~/.config/nvim
 cp ~/Development/mac_init_setup/nvim/init.lua ~/.config/nvim/init.lua
+
+# lazygit (macOS 기본 설정 경로)
+mkdir -p ~/Library/Application\ Support/lazygit
+cp ~/Development/mac_init_setup/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
 
 # Set .zshrc
 rm ~/.zshrc

@@ -1,0 +1,3 @@
+gui:
+  # 스테이징 뷰에서 라인 단위 대신 hunk 단위를 기본 모드로 사용
+  useHunkModeInStagingView: true
