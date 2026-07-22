@@ -37,6 +37,12 @@ npm install --global yarn
 echo "📦 Installing Claude Code"
 curl -fsSL https://claude.ai/install.sh | bash
 
+# Install Bun (claude-mem 플러그인 실행에 필요, ~/.bun에 설치됨)
+echo "📦 Installing Bun"
+curl -fsSL https://bun.sh/install | bash
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Starship
 mkdir -p ~/.config/starship
 cp ~/Development/mac_init_setup/starship/starship.toml ~/.config/starship
@@ -129,6 +135,10 @@ alias claude-auto="claude --permission-mode auto"
 alias claude-safe="claude"
 alias claude-danger="claude --dangerously-skip-permissions"
 alias claude-bypass="claude --permission-mode bypassPermissions"
+
+# Bun (claude-mem 등에서 사용)
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # PostgreSQL
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

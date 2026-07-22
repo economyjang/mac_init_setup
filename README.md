@@ -26,6 +26,7 @@ bash run_init_setting.sh
 - `fnm` — Node 버전 관리자 (설치 시 최신 LTS를 기본으로 지정)
 - `pyenv`, `pyenv-virtualenv` — Python 버전·가상환경 관리
 - `yarn` — npm 전역 설치
+- `bun` — 공식 설치 스크립트로 `~/.bun`에 설치 (claude-mem 플러그인 실행에 필요)
 
 ### CLI 유틸리티
 | 도구 | 용도 |
@@ -53,7 +54,7 @@ bash run_init_setting.sh
 - Claude Code CLI — 공식 설치 스크립트로 `~/.local/bin`에 설치
 
 ### 셸 · 앱 설정
-- `.zshrc` 생성 (Homebrew / pyenv / fnm / yarn / eza alias / zoxide / starship / fzf / git 커스텀 함수 / Claude Code · PostgreSQL PATH)
+- `.zshrc` 생성 (Homebrew / pyenv / fnm / yarn / eza alias / zoxide / starship / fzf / git 커스텀 함수 / Claude Code · Bun · PostgreSQL PATH)
 - starship 설정 → `~/.config/starship/`
 - wezterm 설정 → `~/.wezterm.lua`
 - tmux 설정 → `~/.tmux.conf`
