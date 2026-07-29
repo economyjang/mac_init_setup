@@ -14,7 +14,7 @@ brew install fnm pyenv
 
 # Install Utilities
 echo "📦 Installing Utilities"
-brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux lazygit
+brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux lazygit bun
 
 # Install Database Client (PostgreSQL client tools: psql 등)
 echo "📦 Installing Database Client"
@@ -37,12 +37,6 @@ npm install --global yarn
 echo "📦 Installing Claude Code"
 curl -fsSL https://claude.ai/install.sh | bash
 
-# Install Bun (claude-mem 플러그인 실행에 필요, ~/.bun에 설치됨)
-echo "📦 Installing Bun"
-curl -fsSL https://bun.sh/install | bash
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # Starship
 mkdir -p ~/.config/starship
 cp ~/Development/mac_init_setup/starship/starship.toml ~/.config/starship
@@ -60,6 +54,13 @@ cp ~/Development/mac_init_setup/nvim/init.lua ~/.config/nvim/init.lua
 # lazygit (macOS 기본 설정 경로)
 mkdir -p ~/Library/Application\ Support/lazygit
 cp ~/Development/mac_init_setup/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
+
+# Git alias (아래 .zshrc의 git() 함수와 짝. zsh _git 보완은 git config alias만 읽으므로
+# 여기에 등록해야 `git co <TAB>` 에서도 브랜치 자동완성이 뜬다)
+echo "📦 Setting git alias"
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.st status
 
 # Set .zshrc
 rm ~/.zshrc
@@ -104,6 +105,10 @@ eval "$(zoxide init zsh)"
 # OrbStack command-line tools
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
+# completion (반드시 zsh 플러그인/fzf보다 먼저 — 둘 다 compdef에 의존)
+autoload -Uz compinit
+compinit
+
 # zsh plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -139,10 +144,6 @@ alias claude-auto="claude --permission-mode auto"
 alias claude-safe="claude"
 alias claude-danger="claude --dangerously-skip-permissions"
 alias claude-bypass="claude --permission-mode bypassPermissions"
-
-# Bun (claude-mem 등에서 사용)
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # PostgreSQL
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
