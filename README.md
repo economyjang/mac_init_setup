@@ -26,7 +26,6 @@ bash run_init_setting.sh
 - `fnm` — Node 버전 관리자 (설치 시 최신 LTS를 기본으로 지정)
 - `pyenv`, `pyenv-virtualenv` — Python 버전·가상환경 관리
 - `yarn` — npm 전역 설치
-- `bun` — Homebrew로 설치 (claude-mem 플러그인 실행에 필요)
 
 ### CLI 유틸리티
 | 도구 | 용도 |

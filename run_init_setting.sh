@@ -14,7 +14,7 @@ brew install fnm pyenv
 
 # Install Utilities
 echo "📦 Installing Utilities"
-brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux lazygit bun
+brew install bat fzf eza ripgrep tree zoxide zsh-autosuggestions zsh-syntax-highlighting starship neovim git pyenv-virtualenv tmux lazygit
 
 # Install Database Client (PostgreSQL client tools: psql 등)
 echo "📦 Installing Database Client"
